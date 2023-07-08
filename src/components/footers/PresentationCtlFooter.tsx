@@ -3,16 +3,15 @@ import { Dispatch, SetStateAction } from "react"
 
 
 type Props = {
+  presentationTheme?: string
   currentPage: number
   setCurrentPage: Dispatch<SetStateAction<number>>
 }
 
-const PresentationCtlFooter: NextPage<Props> = ({ currentPage, setCurrentPage }) => {
-  const handlePageNext = () => { setCurrentPage(currentPage + 1) }
-  const handlePagePrevious = () => { setCurrentPage(currentPage - 1) }
-  
+const PresentationCtlFooter: NextPage<Props> = (
+  { presentationTheme, currentPage, setCurrentPage }) => {
   return (
-    <footer className="navbar fixed bottom-0">
+    <footer className="navbar fixed bottom-0 bg-base-100 border-t border-gray-500">
       <div className="navbar-start text-xl">
         { currentPage }
       </div>
@@ -21,13 +20,13 @@ const PresentationCtlFooter: NextPage<Props> = ({ currentPage, setCurrentPage })
         <button
           className="btn btn-outline btn-primary-focus w-28"
           disabled={ currentPage === 1 ? true : false }
-          onClick={ handlePagePrevious }
+          onClick={ () => setCurrentPage(currentPage-1) }
         >前へ</button>
 
         <button
           className="btn btn-outline btn-primary-focus w-28"
-          disabled={ false }
-          onClick={ handlePageNext }
+          disabled={ presentationTheme ? false : true }
+          onClick={ () => setCurrentPage(currentPage+1) }
         >次へ</button>
       </div>
       <div className="navbar-end">
