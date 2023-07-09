@@ -30,6 +30,7 @@ const PresentationController: NextPage = () => {
       <PresentationCtlFooter
         presentationTheme={ presentationTheme }
         currentPage={ currentPage }
+        materialPageNum={ material.materialPageNum() }
         setCurrentPage={ setCurrentPage } />
     </>
   )

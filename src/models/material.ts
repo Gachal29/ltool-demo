@@ -11,4 +11,11 @@ export class Material {
   select = (content: any) => {
     this.contents?.push(content)
   }
+
+  materialPageNum = (): number => {
+    const pageNum = this.contents?.length
+    if (pageNum) {
+      return pageNum+1
+    } else { return 1 }
+  }
 }

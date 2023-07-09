@@ -4,12 +4,13 @@ import { Dispatch, SetStateAction } from "react"
 
 type Props = {
   presentationTheme?: string
+  materialPageNum: number
   currentPage: number
   setCurrentPage: Dispatch<SetStateAction<number>>
 }
 
 const PresentationCtlFooter: NextPage<Props> = (
-  { presentationTheme, currentPage, setCurrentPage }) => {
+  { presentationTheme, materialPageNum, currentPage, setCurrentPage }) => {
   return (
     <footer className="navbar fixed bottom-0 bg-base-100 border-t border-gray-500">
       <div className="navbar-start text-xl">
@@ -25,7 +26,7 @@ const PresentationCtlFooter: NextPage<Props> = (
 
         <button
           className="btn btn-outline btn-primary-focus w-28"
-          disabled={ presentationTheme ? false : true }
+          disabled={ currentPage-1 === materialPageNum || !presentationTheme ? true : false }
           onClick={ () => setCurrentPage(currentPage+1) }
         >次へ</button>
       </div>
