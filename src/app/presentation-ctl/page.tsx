@@ -14,7 +14,7 @@ const PresentationController: NextPage = () => {
   const [presentationTheme, setPresentationTheme] = useState<string>("")
   const [material, setMaterial] = useState<Material>({contents: []})
 
-  const handleMaterialPageNum = (): number => {
+  const getMaterialPageNum = (): number => {
     const pageNum = material.contents.length
     return pageNum + 1
   }
@@ -31,20 +31,20 @@ const PresentationController: NextPage = () => {
         {presentationTheme && currentPage === 1 &&
           <PresentationThemeTemplate presentationTheme={ presentationTheme } />
         }
-        {currentPage > 1 && currentPage-1 === handleMaterialPageNum() &&
+        {currentPage > 1 && currentPage-1 === getMaterialPageNum() &&
           <PresentationContentsSelect
             material={ material }
             setMaterial={ setMaterial }
             currentPage={ currentPage } />
         }
-        {/* {currentPage > 1 && currentPage === handleMaterialPageNum() &&
-          <div>{ material.getContent(currentPage) }</div>
-        } */}
+        {currentPage > 1 && currentPage === getMaterialPageNum() &&
+          <div>{ material.contents[currentPage-1].shortContent.content }</div>
+        }
       </main>
       <PresentationCtlFooter
         presentationTheme={ presentationTheme }
         currentPage={ currentPage }
-        materialPageNum={ handleMaterialPageNum() }
+        materialPageNum={ getMaterialPageNum() }
         setCurrentPage={ setCurrentPage } />
     </>
   )

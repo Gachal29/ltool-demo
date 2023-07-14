@@ -15,28 +15,35 @@ const PresentationContentsSelect: NextPage<Props> = ({ material, setMaterial, cu
     const materialTmp: Material = material
     materialTmp.contents.push(content)
     setMaterial(materialTmp)
+    // console.log("test")
   }
 
   const contentElems: any = []
   PresentationContentChoices.forEach((contentChoice: Content, index: number) => {
-    contentElems.push(
-      <li
-        key={ index }
-        className="w-64 h-24 mx-2 bg-base-100 shadow-md btn btn-outline"
-        onClick={() => handleSetMaterialContent(contentChoice) }>
-        <span className="card-body text-xl">
-          { contentChoice.shortContent.content }
-        </span>
-      </li>
-    )
-  }, { index: 1 })  
+    switch (contentChoice.type) {
+      case "speacker_interview":
+        break
+      
+      case "scrapbox":
+        switch (contentChoice.shortContent.type) {
+          case "text":
+            // テキストの選択カードを作成
+            contentElems.push(
+              <li key={ index }
+                className="h-24 w-64 mx-2 btn btn-outline break-all text-xl"
+                onClick={() => handleSetMaterialContent(contentChoice)}
+              >{ contentChoice.shortContent.content }</li>
+            )
+            break
+        }
+        break
+    }
+  })
   
   return (
     <div className="text-center">
       <h1 className="font-bold text-3xl mt-2 mb-6">{currentPage}ページ目の内容を選択</h1>
-      <div>
-        <ul className="flex">{ contentElems }</ul>
-      </div>
+      <ul className="flex">{ contentElems }</ul>
     </div>
   )
 }

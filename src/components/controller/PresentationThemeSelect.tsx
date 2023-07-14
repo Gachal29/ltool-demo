@@ -12,7 +12,7 @@ const PresentationThemeSelect: NextPage<Props> = ({ setPresentationTheme }) => {
   PresentationThemeChoices.forEach((presentationThemeChoice, index) => {
     choicesElems.push(
       <li key={ index }
-        className="btn btn-lg btn-outline w-full lg:text-4xl btn-lg my-4"
+        className="btn btn-lg btn-outline w-full lg:text-4xl btn-lg my-4 break-all"
         onClick={() => setPresentationTheme(presentationThemeChoice)}>
         { presentationThemeChoice }
       </li>
