@@ -7,6 +7,7 @@ import { useState } from "react"
 import PresentationThemeTemplate from "components/controller/PresentationThemeTemplate"
 import PresentationContentsSelect from "components/controller/PresentationContentsSelect"
 import { Material } from "model/material"
+import PresentationContentTemplate from "components/controller/PresentationContentTemplate"
 
 
 const PresentationController: NextPage = () => {
@@ -31,14 +32,14 @@ const PresentationController: NextPage = () => {
         {presentationTheme && currentPage === 1 &&
           <PresentationThemeTemplate presentationTheme={ presentationTheme } />
         }
-        {currentPage > 1 && currentPage-1 === getMaterialPageNum() &&
+        { currentPage > 1 && currentPage-1 === getMaterialPageNum() &&
           <PresentationContentsSelect
             material={ material }
             setMaterial={ setMaterial }
             currentPage={ currentPage } />
         }
-        {currentPage > 1 && currentPage === getMaterialPageNum() &&
-          <div>{ material.contents[currentPage-1].shortContent.content }</div>
+        {currentPage <= getMaterialPageNum() && material.contents[currentPage-2] &&
+          <PresentationContentTemplate content={ material.contents[currentPage-2] } />
         }
       </main>
       <PresentationCtlFooter

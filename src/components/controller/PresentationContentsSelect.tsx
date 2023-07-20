@@ -14,8 +14,7 @@ const PresentationContentsSelect: NextPage<Props> = ({ material, setMaterial, cu
   const handleSetMaterialContent = (content: Content): void => {
     const materialTmp: Material = material
     materialTmp.contents.push(content)
-    setMaterial(materialTmp)
-    // console.log("test")
+    setMaterial(JSON.parse(JSON.stringify(materialTmp)))
   }
 
   const contentElems: any = []
