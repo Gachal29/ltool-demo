@@ -1,0 +1,43 @@
+{
+  "title": "",
+  "contents": [
+    {
+      "type": "scrapbox",
+      "short_content": {
+        "type": "text",
+        "content": ""
+      },
+      "content_data": [
+        {
+          "type": "text",
+          "depth": 0,
+          "data": ""
+        },
+        {
+          "type": "image",
+          "depth": 0,
+          "data": "https://scrapbox.io/files/xxxxxx.jpg"
+        }
+      ]
+    },
+    {
+      "type": "scrapbox",
+      "short_content": {
+        "type": "image",
+        "content": "https://scrapbox.io/files/xxxxxx.jpg"
+      },
+      "content_data": [
+        {
+          "type": "text",
+          "depth": 0,
+          "data": ""
+        },
+        {
+          "type": "image",
+          "depth": 0,
+          "data": "https://scrapbox.io/files/xxxxxx.jpg"
+        }
+      ]
+    }
+  ]
+}
