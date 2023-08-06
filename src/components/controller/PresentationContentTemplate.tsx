@@ -30,9 +30,10 @@ const PresentationContentTemplate: NextPage<Props> = ({ content }) => {
         case "image":
           slideContents.push(
             <li className={ data_style }>
-              <Image src={ data.data } alt="" layout="responsive" />
+              <Image src={ data.data } alt="" layout="responsive" width={data.width ?? 100} height={data.height ?? 100} />
             </li>
           )
+          break
       }
     })
   }

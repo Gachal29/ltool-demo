@@ -29,7 +29,7 @@ const PresentationContentsSelect: NextPage<Props> = ({ material, setMaterial, cu
             // テキストの選択カードを作成
             contentElems.push(
               <li key={ index }
-                className="h-24 w-64 mx-2 btn btn-outline break-all text-xl"
+                className="h-24 w-64 m-2 btn btn-outline break-all text-xl"
                 onClick={() => handleSetMaterialContent(contentChoice)}
               >{ contentChoice.shortContent.content }</li>
             )
@@ -42,7 +42,7 @@ const PresentationContentsSelect: NextPage<Props> = ({ material, setMaterial, cu
   return (
     <div className="text-center">
       <h1 className="font-bold text-3xl mt-2 mb-6">{currentPage}ページ目の内容を選択</h1>
-      <ul className="flex">{ contentElems }</ul>
+      <ul className="flex flex-wrap justify-between">{ contentElems }</ul>
     </div>
   )
 }

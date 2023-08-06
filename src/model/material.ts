@@ -7,8 +7,9 @@ export interface ShortContent {
 export interface ContentData {
   type: string
   depth: number
-  display: boolean
   data: string
+  width?: number
+  height?: number
 }
 
 export interface Content {
